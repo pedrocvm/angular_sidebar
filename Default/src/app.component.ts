@@ -1,5 +1,4 @@
-﻿import { OnInit } from './../jslib/angular-ts-decorators/types/lifecycle_hooks.d';
-import angular, {
+﻿import angular, {
   IHttpResponse,
   ILocationService,
   IRootScopeService,
@@ -15,62 +14,18 @@ import { IModalService, IModalSettings } from './uibootstrap4';
 export class AppComponent {
   public static $inject = [];
 
-  public handleSidebar() {
-    $('.sidebar-btn').click(() => {
-      $('.wrapper').toggleClass('collapsed');
-      $('.header').toggleClass('header-collapsed');
-    });
-  }
-
-  public handleMenuCollapse() {
-    const items = document.querySelectorAll('.item') as NodeListOf<Element>;
-    items.forEach((item) => {
-      $(item).click(() => {
-        const chevron = item.querySelector('.fa-chevron-down');
-        const submenu = item.querySelector('.sub-menu');
-        const menuItems = item.querySelector('.menu-items');
-        chevron?.classList.toggle('fa-chevron-up');
-        submenu?.classList.toggle('sub-menu-collapsed');
-        menuItems?.classList.toggle('menu-items-collapsed');
-      });
-    });
-  }
-
-  public handleSubmenuCollapse(){
-    const submenus = document.querySelectorAll('.sub-menu') as NodeListOf<Element>;
-    submenus.forEach((item) => {
-      $(item).click(() => {
-        const chevron = item.querySelector('.fa-chevron-down');
-        const submenuItems = item.querySelector('.sub-menu-items');
-        chevron?.classList.toggle('fa-chevron-up');
-        submenuItems?.classList.toggle('sub-menu-items-collapsed');
-      });
-    });
-  }
-
-
   public menuPreview = [
     {
-      MenuGroup: 'HOME',
-      Icon: 'fas fa-home',
+      MenuGroup: 'Home',
       Items: [
-        { 
-          Title: 'Dashboard', 
-          Home: true, 
-          $$hashKey: 'object:45' 
-        },
-        { 
-          Title: 'Workflow', 
-          Workflow: true, 
-          $$hashKey: 'object:46' 
-        },
+        { Title: 'Dashboard', Home: true, $$hashKey: 'object:45' },
+        { Title: 'Workflow', Workflow: true, $$hashKey: 'object:46' },
       ],
       $$hashKey: 'object:9',
     },
     {
       Id: 592,
       MenuGroup: 'ATTENDANCE',
-      Icon: 'fas fa-users',
       Submenus: null,
       Items: [
         {
@@ -89,7 +44,6 @@ export class AppComponent {
     {
       Id: 974,
       MenuGroup: 'REPORTS',
-      Icon: 'far fa-calendar-alt',
       Submenus: [
         {
           Id: 972,
@@ -117,7 +71,6 @@ export class AppComponent {
     {
       Id: 586,
       MenuGroup: 'FINANCIALS',
-      Icon: 'fas fa-money-check',
       Submenus: [
         {
           Id: 942,
@@ -321,7 +274,6 @@ export class AppComponent {
     {
       Id: 585,
       MenuGroup: 'PEOPLE',
-      Icon: 'fas fa-user',
       Submenus: null,
       Items: [
         {
@@ -340,7 +292,6 @@ export class AppComponent {
     {
       Id: 1217,
       MenuGroup: 'EVENTS',
-      Icon: 'far fa-calendar-check',
       Submenus: null,
       Items: [
         {
@@ -368,7 +319,6 @@ export class AppComponent {
     {
       Id: 633,
       MenuGroup: 'FORMS',
-      Icon: 'far fa-file-alt',
       Submenus: null,
       Items: [
         {
@@ -405,7 +355,6 @@ export class AppComponent {
     {
       Id: 593,
       MenuGroup: 'TOOLS',
-      Icon: 'fas fa-tools',
       Submenus: [
         {
           Id: 601,
@@ -551,7 +500,6 @@ export class AppComponent {
     {
       Id: 584,
       MenuGroup: 'USER ACCOUNTS',
-      Icon: 'fas fa-user-cog',
       Submenus: null,
       Items: [
         {
@@ -588,7 +536,6 @@ export class AppComponent {
     {
       Id: 1014,
       MenuGroup: 'DEVELOPMENT',
-      Icon: 'fas fa-code',
       Submenus: null,
       Items: [
         {
@@ -607,7 +554,6 @@ export class AppComponent {
     {
       Id: 587,
       MenuGroup: 'SETTINGS',
-      Icon: 'fas fa-cog',
       Submenus: null,
       Items: [
         {
@@ -813,9 +759,7 @@ export class AppComponent {
       $$hashKey: 'object:19',
     },
     {
-      MenuGroup: 'PROFILE',
-      Icon: "fas fa-user-edit",
-      Submenus: [],
+      MenuGroup: 'Profile',
       Items: [
         {
           Title: 'Change Password',
@@ -827,9 +771,4 @@ export class AppComponent {
       $$hashKey: 'object:20',
     },
   ];
-  
-  public ngOnInit() {
-    this.handleSidebar();
-    this.handleMenuCollapse();
-    this.handleSubmenuCollapse();
 }

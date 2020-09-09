@@ -398,7 +398,7 @@ body {
   margin-right: 20px;
 }
 
-.wrapper .sidebar .sidebar-menu .item .menu-btn .drop-down {
+.drop-down {
   float: right;
   font-size: 12px;
   margin-top: 3px;
@@ -412,6 +412,14 @@ body {
   transition-property: background, max-height;
 }
 
+.wrapper .sidebar .sidebar-menu .item .sub-menu .sub-menu-items{
+  background: #50507c;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s ease-in-out;
+  transition-property: background, max-height;
+}
+
 .wrapper .sidebar .sidebar-menu .item .sub-menu a {
   display: block;
   position: relative;
@@ -419,7 +427,7 @@ body {
   white-space: nowrap;
   font-size: 15px;
   padding: 20px;
-  border-bottom: 1px solid #50507c;
+
   transition: 0.3s;
   transition-property: background;
 }
@@ -434,6 +442,60 @@ body {
 }
 
 .wrapper .sidebar .sidebar-menu .item .sub-menu-collapsed {
+  max-height: 500px !important;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu .sub-menu-items a {
+  display: block;
+  position: relative;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 15px;
+  padding: 15px;
+
+  transition: 0.3s;
+  transition-property: background, color;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu .sub-menu-items a:hover {
+  background: #373755;
+  color: white;
+}
+
+.wrapper .sidebar .sidebar-menu .item .sub-menu-collapsed .sub-menu-items-collapsed {
+  max-height: 500px;
+}
+
+.menu-items {
+  background: #353552;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s ease-in-out;
+  transition-property: background, max-height;
+}
+
+.menu-items a {
+  display: block;
+  position: relative;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 15px;
+  padding: 20px;
+
+  transition: 0.3s;
+  transition-property: background;
+}
+
+.menu-items a:hover{
+  background: #45456b;
+}
+
+.menu-items i {
+  font-size: 10px;
+  margin-right: 20px;
+}
+
+.menu-items-collapsed {
   max-height: 500px !important;
 }
 
@@ -453,8 +515,6 @@ body {
   width: 70px;
 }
 
-.wrapper.collapsed .sidebar .profile img,
-.wrapper.collapsed .sidebar .profile p,
 .wrapper.collapsed .sidebar a span {
   display: none;
 }
@@ -466,6 +526,12 @@ body {
 .wrapper.collapsed .sidebar .sidebar-menu .item .sub-menu i {
   font-size: 18px;
   padding-left: 3px;
+}
+
+.wrapper.collapsed .menu-items-collapsed,
+.wrapper-collapsed .sub-menu-items-collapsed,
+.wrapper.collapsed .sub-menu{
+  display: none;
 }
 
 .wrapper.collapsed .main-container {

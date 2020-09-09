@@ -1,0 +1,121 @@
+
+.side-menu {
+  box-shadow: 15px 0 15px -13px #00000070;
+  height: calc(100vh - 56px);
+  margin-top: 3px;
+  overflow-y: auto;
+  border-top: 3px solid;
+}
+
+.side-menu.bg-dark {
+  border-top-color: #4c535a;
+}
+
+.side-menu.bg-primary {
+  border-top-color: #469ffe;
+}
+
+.side-menu::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.side-menu::-webkit-scrollbar-track,
+.side-menu::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+.side-menu.bg-dark::-webkit-scrollbar-track {
+  background-color: #4b4b4b;
+}
+
+.side-menu.bg-dark::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
+}
+
+.side-menu.bg-primary::-webkit-scrollbar-track {
+  background-color: #daf1ff;
+}
+
+.side-menu.bg-primary::-webkit-scrollbar-thumb {
+  background-color: #93cdff;
+}
+
+.side-menu ez-side-menu {
+  display: block;
+  position: relative;
+  font-family: "Century Gothic";
+}
+
+.side-menu ez-side-menu:after {
+  content: "\f107";
+  font-family: FontAwesome;
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.side-menu ez-side-menu.active:after {
+  content: "\f106";
+}
+
+.side-menu ez-side-menu > a {
+  color: #fff;
+  display: block;
+  padding: 12px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid;
+}
+
+.side-menu.bg-dark ez-side-menu > a {
+  background: #343a40;
+  border-bottom-color: #4c535a;
+}
+
+.side-menu.bg-primary ez-side-menu > a {
+  background: #007bff;
+  border-bottom-color: #469ffe;
+}
+
+.side-menu ez-side-menu > a:hover {
+  transition: 300ms all;
+  color: #09fbd2;
+}
+
+.side-menu.bg-dark ez-side-menu > a:hover {
+  background-color: #4c535a !important;
+}
+
+.side-menu.bg-primary ez-side-menu > a:hover {
+  background-color: #3094ff;
+}
+
+.side-menu.bg-dark ez-side-menu.active > ez-side-menu > a,
+.side-menu.bg-dark ez-side-menu.active > a {
+  background: #394046;
+}
+
+.side-menu.side-menu.bg-primary ez-side-menu.active > ez-side-menu > a,
+.side-menu.bg-primary ez-side-menu.active > a {
+  background: #1385ff;
+}
+
+.side-menu ez-side-menu.has-active > a:first-child,
+.side-menu ez-side-menu.active > a:first-child {
+  color: #46efa4;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.side-menu ez-side-menu > :not(:first-child) {
+  display: none;
+}
+
+.side-menu ez-side-menu.has-active > :not(:first-child),
+.side-menu ez-side-menu.active > :not(:first-child) {
+  display: block;
+}
+
