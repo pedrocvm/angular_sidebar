@@ -19,25 +19,32 @@ export class AppComponent {
     $('.sidebar-btn').click(() => {
       $('.wrapper').toggleClass('collapsed');
       $('.header').toggleClass('header-collapsed');
+      $('.header .fa-bars').toggleClass('fa-times')
     });
   }
 
   public handleMenuCollapse() {
     const items = document.querySelectorAll('.item') as NodeListOf<Element>;
+
     items.forEach((item) => {
-      $(item).click(() => {
-        const chevron = item.querySelector('.fa-chevron-down');
-        const submenu = item.querySelector('.sub-menu');
-        const menuItems = item.querySelector('.menu-items');
+      const itemBtn = item.querySelector('.menu-btn');
+      const chevron = item.querySelector('.fa-chevron-down');
+      const submenu = item.querySelector('.sub-menu');
+      const menuItems = item.querySelector('.menu-items');
+
+      itemBtn?.addEventListener('click', ()=>{
         chevron?.classList.toggle('fa-chevron-up');
         submenu?.classList.toggle('sub-menu-collapsed');
         menuItems?.classList.toggle('menu-items-collapsed');
-      });
+      })
+      
     });
   }
 
-  public handleSubmenuCollapse(){
-    const submenus = document.querySelectorAll('.sub-menu') as NodeListOf<Element>;
+  public handleSubmenuCollapse() {
+    const submenus = document.querySelectorAll('.sub-menu') as NodeListOf<
+      Element
+    >;
     submenus.forEach((item) => {
       $(item).click(() => {
         const chevron = item.querySelector('.fa-chevron-down');
@@ -48,21 +55,20 @@ export class AppComponent {
     });
   }
 
-
   public menuPreview = [
     {
       MenuGroup: 'HOME',
       Icon: 'fas fa-home',
       Items: [
-        { 
-          Title: 'Dashboard', 
-          Home: true, 
-          $$hashKey: 'object:45' 
+        {
+          Title: 'Dashboard',
+          Home: true,
+          $$hashKey: 'object:45',
         },
-        { 
-          Title: 'Workflow', 
-          Workflow: true, 
-          $$hashKey: 'object:46' 
+        {
+          Title: 'Workflow',
+          Workflow: true,
+          $$hashKey: 'object:46',
         },
       ],
       $$hashKey: 'object:9',
@@ -814,7 +820,7 @@ export class AppComponent {
     },
     {
       MenuGroup: 'PROFILE',
-      Icon: "fas fa-user-edit",
+      Icon: 'fas fa-user-edit',
       Submenus: [],
       Items: [
         {
@@ -827,9 +833,8 @@ export class AppComponent {
       $$hashKey: 'object:20',
     },
   ];
-  
+
   public ngOnInit() {
     this.handleSidebar();
-    this.handleMenuCollapse();
-    this.handleSubmenuCollapse();
+  }
 }

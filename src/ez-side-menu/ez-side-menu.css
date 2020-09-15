@@ -1,48 +1,23 @@
+/* ORIGINAL SIDEBAR CSS */
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
+  text-decoration: none;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  background-color: #f9f9f9;
 }
 
 ::-webkit-scrollbar {
-  width: 3px !important;
-}
-
-.side-menu {
-  box-shadow: 15px 0 15px -13px #00000070;
-  height: calc(100vh - 56px);
-  margin-top: 3px;
-  overflow-y: auto;
-}
-
-.side-menu.bg-primary {
-  border-top-color: #469ffe;
-}
-
-.side-menu::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
-}
-
-.side-menu::-webkit-scrollbar-track,
-.side-menu::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-}
-
-.side-menu.bg-dark::-webkit-scrollbar-track {
-  background-color: #1e1e2d;
-}
-
-.side-menu.bg-dark::-webkit-scrollbar-thumb {
-  background-color: #a9a9a9;
-}
-
-.side-menu.bg-primary::-webkit-scrollbar-track {
-  background-color: #daf1ff;
-}
-
-.side-menu.bg-primary::-webkit-scrollbar-thumb {
-  background-color: #93cdff;
+  width: 0px !important;
 }
 
 .side-menu ez-side-menu {
@@ -57,6 +32,7 @@
   padding: 12px 15px;
   font-size: 14px;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .side-menu.bg-dark ez-side-menu > a {
@@ -64,14 +40,8 @@
   border-bottom-color: #303047;
 }
 
-.side-menu.bg-primary ez-side-menu > a {
-  background: #007bff;
-  border-bottom-color: #469ffe;
-}
-
 .side-menu ez-side-menu > a:hover {
-  transition: 300ms all;
-  color: #fbe309;
+  color: #6fc2fa;
 }
 
 .side-menu.bg-dark ez-side-menu > a:hover {
@@ -94,7 +64,7 @@
 
 .side-menu ez-side-menu.has-active > a:first-child,
 .side-menu ez-side-menu.active > a:first-child {
-  color: #fbe309;
+  color: #6fc2fa;
 }
 
 .side-menu ez-side-menu.has-active > a:first-child {
@@ -110,82 +80,6 @@
   display: block;
 }
 
-.menu-header {
-  height: 100%;
-  position: fixed;
-  transition: all 0.35s ease-in-out;
-  min-width: 300px;
-  max-width: 300px;
-  left: -230px;
-  background-color: #1a1a27;
-  position: fixed;
-}
-
-.menu-header-moved {
-  transform: translateX(230px);
-}
-
-.menuContainer {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-sidebar {
-  height: 100%;
-  min-width: 70px;
-  max-width: 70px;
-  background-color: #1e1e2d;
-  position: fixed;
-  text-align: center;
-  color: #f3f3f3;
-  transition: all 0.35s ease-out;
-  left: -70px;
-}
-
-.icon-sidebar-visible {
-  transform: translateX(70px);
-}
-
-.menu-icon {
-  height: 41px;
-  position: fixed;
-  font-size: 25px;
-  font-weight: bold;
-  width: 40px;
-  text-align: center;
-  background-color: #1e1e2d;
-  color: #fff;
-  cursor: pointer;
-  left: 13px;
-  margin: 0;
-  z-index: 1;
-  border: solid 1px lightgray;
-  border-radius: 5px;
-  transition: color 0.5s;
-  transition: transform 0.35s ease-in-out;
-}
-
-.menu-icon-moved {
-  transform: translateX(230px);
-}
-
-.menu-icon:hover {
-  background-color: #f3f3f3;
-  color: #1e1e2d;
-  border-color: #000;
-}
-
-.menu-icon:active {
-  box-shadow: 1px 1px 1px 1px rgb(105, 105, 105);
-}
-
-#chk {
-  position: absolute;
-  display: none;
-}
-
 #chevron {
   position: absolute;
   right: 10px;
@@ -198,39 +92,187 @@
 }
 
 .side-menu {
-  height: 100%;
+  height: 100vh!important;
   position: fixed;
-  top: 56px;
-  transition: all 0.35s ease-in-out;
   min-width: 300px;
   max-width: 300px;
-  left: 100px;
   z-index: 1;
+  top: 70px;
+  transition: 0.3s;
+  transition-property: width;
+  overflow: auto;
 }
 
-.side-menu-visible {
-  transform: translateX(200px);
+.bg-dark {
+  background-color: #1e1e2d !important;
 }
 
-.bg {
+/* NEW SIDEBAR CSS */
+.header {
+  z-index: 2;
+  background: #1a1a27;
+  position: fixed;
+  max-width: 300px;
+  min-width: 300px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  top: 0;
+  transition: all 0.3s;
+}
+
+.header-menu {
   width: 100%;
   height: 100%;
-  left: 0;
-  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sidebar-btn {
+  color: #fff;
+  position: absolute;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  transition-property: color;
+  right: 20px;
+}
+
+.header-collapsed {
+  max-width: 70px;
+  min-width: 70px;
+}
+
+.header-collapsed .header-menu {
+  max-width: 70px;
+  min-width: 70px;
+}
+
+.header-collapsed .sidebar-btn {
+  right: 25px;
+}
+
+.sidebar-btn:hover {
+  color: #6fc2fa;
+}
+
+.sidebar {
+  z-index: 1;
+  background: #1e1e2d;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.6);
+  top: 70px;
+  width: 250px;
+  height: calc(100% - 9%);
+  transition: 0.3s;
+  transition-property: width;
+  overflow: auto;
+}
+
+.menu-btn {
+  display: block;
+  color: #fff;
+  position: relative;
+  padding: 25px 20px;
+  transition: 0.3s;
+  transition-property: color;
+}
+
+.menu-btn span,
+.menu-btn i {
+  transition: 0.3s;
+  transition-property: color;
+}
+
+.menu-btn:hover span,
+.menu-btn:hover i {
+  color: #6fc2fa;
+}
+
+.menu-btn:hover .fa-chevron-down,
+.menu-btn:hover .fa-chevron-up {
+  color: white;
+}
+
+.menu-btn i {
+  margin-right: 20px;
+}
+
+.wrapper .bg-dark {
+  transition: all 0.3s !important;
+  max-width: 300px;
+  min-width: 300px;
+}
+
+a.menuItem {
+  padding-left: 50px !important;
+  background-color: #525281 !important;
+}
+
+.wrapper.collapsed .bg-dark {
+  max-width: 70px;
+  min-width: 70px;
+}
+
+.wrapper.collapsed .sidebar a span {
   display: none;
 }
 
-.bg-visible {
-  display: block;
+.wrapper.collapsed #chevron {
+  display: none;
 }
 
-.angularIcon {
-  width: 30px;
+.wrapper.collapsed .sidebar #menuIcon {
+  font-size: 23px;
 }
 
-.icon-sidebar img {
-  width: 35px;
-  margin: 15px 0 5px 0;
+.wrapper.collapsed .menuItem,
+.wrapper.collapsed .submenuItem {
+  display: none !important;
+}
+
+.wrapper.collapsed #menuIcon {
+  margin-right: 0;
+}
+
+.wrapper.collapsed .sidebar a {
+  text-align: center;
+  width: 70px;
+}
+
+.wrapper.collapsed .side-menu.bg-dark ez-side-menu > a:hover,
+.wrapper.collapsed .side-menu.bg-dark ez-side-menu.active > ez-side-menu > a,
+.wrapper.collapsed .side-menu.bg-dark ez-side-menu.active > a {
+  background-color: #1a1a27 !important;
+}
+
+.wrapper.collapsed .side-menu.bg-dark ez-side-menu.active > ez-side-menu > a,
+.wrapper.collapsed .side-menu.bg-dark ez-side-menu.active > a {
+  color: white;
+}
+
+/* MOBILE CSS */
+
+@media (max-width: 768px) {
+  .wrapper.collapsed .sidebar {
+    left: -70px;
+    z-index: 1;
+  }
+
+  .sidebar {
+    height: calc(100vh - 69px)!important;
+    top: 0;
+  }
+
+  .header {
+    position: fixed;
+    min-width: 100vw !important;
+    top: calc(100% - 70px);
+  }
+
+
+
+
 }

@@ -11,10 +11,9 @@ import { ITemplateCacheService, ILocationProvider } from 'angular';
 import { NgModule } from 'angular-ts-decorators';
 import { AppComponent } from './app.component';
 import { EzSideMenu } from './ez-side-menu/ez-side-menu';
-import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent, EzSideMenu, SidebarComponent],
+  declarations: [AppComponent, EzSideMenu],
   id: 'AppModule',
   imports: [],
   providers: [],

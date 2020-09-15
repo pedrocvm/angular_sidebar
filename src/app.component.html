@@ -1,70 +1,21 @@
-﻿<div class="wrapper">
-
-  <!-- Header Menu Start -->
-  <div class="header">
+﻿<div class="wrapper collapsed">
+  <div class="header header-collapsed">
     <div class="header-menu">
+      <div class="action-btn">
+        
+      </div>
       <div class="sidebar-btn">
         <i class="fas fa-bars"></i>
       </div>
-
     </div>
   </div>
-  <!-- Header Menu End -->
 
-  <!-- Sidebar Start -->
-  <div class="sidebar">
-    <div class="sidebar-menu">
+  <nav class="navbar navbar-expand-lg navbar-dark"></nav>
 
-      <!--Aqui será o ng-repeat dos Menus --> 
-      <li class="item" ng-repeat="item in $ctrl.menuPreview">
-        <a href="javascript:void(0)" class="menu-btn" ng-click="$ctrl.handleMenuCollapse()">
-          <i class="{{item.Icon}}"></i>
-          <span><app-sidebar ez-submenu-list="item"></app-sidebar></span>
-          <i class="fas fa-chevron-down drop-down"></i>
-        </a>
-
-        <!--Aqui será o ng-repeat dos Submenus com Itens -->
-        <div class="sub-menu" ng-repeat="submenu in item.Submenus" ng-if="item.Submenus">
-          <a href="javascript:void(0)" ng-click="$ctrl.handleSubmenuCollapse()">
-            <span>{{submenu.MenuGroup}}</span>
-            <i class="fas fa-chevron-down drop-down"></i>
-            <div class="sub-menu-items">
-              <a href="javascript:void(0)" ng-repeat="item in submenu.Items" ng-if="item">
-                <span>{{item.Title}}</span>
-              </a>
-            </div>
-          </a>      
-        </div>
-
-        <!--Aqui será o ng-repeat dos Itens sem Submenus -->
-        <div class="menu-items" ng-repeat="item in item.Items">
-          <a href="javascript:void(0)">
-            <span ng-if="item">{{item.Title}}</span>
-          </a>          
-        </div>
-
-        <!-- <div class="sub-menu" ng-repeat="submenu in item.Submenus">
-          <a href="javascript:void(0)" ng-click="$ctrl.handleMenuCollapse()">
-            <i class="fas fa-asterisk"></i>
-            <span>{{submenu.MenuGroup}}</span>
-            <i class="fas fa-chevron-down drop-down"></i>
-            <div class="sub-menu" ng-repeat="item in submenu.Items">
-              <a href="javascript:void(0)"><span>{{item.Title}}</span></a>
-            </div>
-          </a>      
-        </div> -->
-
-        <!-- <div class="sub-menu" ng-repeat= "menu in item.Items">
-          <a href="javascript:void(0)"><i class="fas fa-asterisk"></i><span>{{menu.Title}}</span></a>
-          <!-- <a href="javascript:void(0)"><i class="fas fa-asterisk"></i><span>{{item.Submenus}}</span></a> -->
-        </div> -->
-      </li>
-
-    
-    </div>
+  <div class="side-menu sidebar bg-dark">
+    <ez-side-menu
+      ng-repeat="item in $ctrl.menuPreview"
+      ez-submenu-list="item"
+    ></ez-side-menu>
   </div>
-  <!-- Sidebar End -->
-
-  <div class="main-container"></div>
 </div>
-

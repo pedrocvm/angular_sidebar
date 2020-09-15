@@ -28,14 +28,12 @@ export class EzSideMenu {
     event.stopPropagation();
     let parentElement = <HTMLElement>event.currentTarget.parentElement!;
     for (let element of parentElement.querySelectorAll('ez-side-menu')!) {
-      const chevron = element.querySelector('#chevron') as HTMLInputElement;
       if (element === event.currentTarget) {
+        const chevron = element.querySelector('.fa-chevron-down') as HTMLInputElement;
+        chevron.classList.toggle('fa-chevron-up');
         if (!element.classList.contains('has-active')) {
           element.classList.toggle('active');
-          if (chevron.classList.contains('fa-chevron-down')) {
-            chevron.classList.toggle('fa-chevron-up');
-          }
-
+          
           if (
             parentElement.tagName === 'EZ-SIDE-MENU' &&
             parentElement.classList.contains('active')
