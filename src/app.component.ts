@@ -19,7 +19,7 @@ export class AppComponent {
     $('.sidebar-btn').click(() => {
       $('.wrapper').toggleClass('collapsed');
       $('.header').toggleClass('header-collapsed');
-      $('.header .fa-bars').toggleClass('fa-times')
+      $('.header .fa-bars').toggleClass('fa-times');
     });
   }
 
@@ -32,12 +32,11 @@ export class AppComponent {
       const submenu = item.querySelector('.sub-menu');
       const menuItems = item.querySelector('.menu-items');
 
-      itemBtn?.addEventListener('click', ()=>{
+      itemBtn?.addEventListener('click', () => {
         chevron?.classList.toggle('fa-chevron-up');
         submenu?.classList.toggle('sub-menu-collapsed');
         menuItems?.classList.toggle('menu-items-collapsed');
-      })
-      
+      });
     });
   }
 
@@ -52,6 +51,30 @@ export class AppComponent {
         chevron?.classList.toggle('fa-chevron-up');
         submenuItems?.classList.toggle('sub-menu-items-collapsed');
       });
+    });
+  }
+
+  public handleMobileVersion() {
+    const width: any = $(window).width();
+    if (width <= 768) {
+      $('.header .action-container').addClass('action-container-visible');
+      $('.sidebar-btn').addClass('sidebar-btn-hidden');
+    } else {
+      $('.header .fa-bars').removeClass('fa-ellipsis-h');
+      $('.header .action-container').removeClass('action-container-visible');
+      $('.sidebar-btn').removeClass('sidebar-btn-hidden');
+    }
+  }
+
+  public handleResize() {
+    const width: any = $(window).width();
+    if (width <= 768) {
+      $('.header .action-menu').addClass('action-menu-visible');
+      $('.sidebar-btn').addClass('sidebar-btn-hidden');
+    }
+
+    $(window).resize(() => {
+      this.handleMobileVersion();
     });
   }
 
@@ -834,7 +857,60 @@ export class AppComponent {
     },
   ];
 
+  public buttonPreview = [
+    {
+      caption: 'New',
+      icon: 'fas fa-save',
+      isDisabled: false,
+      click: () => {
+        console.log('SAVE BUTTON');
+      },
+    },
+    {
+      caption: 'Cancel',
+      icon: 'fas fa-ban',
+      isDisabled: true,
+      click: () => {
+        console.log('CANCEL BUTTON');
+      },
+    },
+    {
+      caption: 'Search',
+      icon: 'fas fa-search',
+      isDisabled: false,
+      click: () => {
+        console.log('SEARCH BUTTON');
+      },
+    },
+    {
+      caption: 'Calendar',
+      icon: 'far fa-calendar-alt',
+      isDisabled: true,
+      click: () => {
+        console.log('CALENDAR BUTTON');
+      },
+    },
+    {
+      caption: 'Chat',
+      icon: 'far fa-comment-dots',
+      isDisabled: false,
+      click: () => {
+        console.log('CHAT BUTTON');
+      },
+    },
+    {
+      caption: 'Menu',
+      icon: 'fas fa-bars',
+      isDisabled: false,
+      click: () => {
+        $('.wrapper').toggleClass('collapsed');
+        $('.header').toggleClass('header-collapsed');
+      },
+    },
+  ];
+
   public ngOnInit() {
     this.handleSidebar();
+    this.handleResize();
   }
 }

@@ -93,7 +93,6 @@ body {
 }
 
 .side-menu {
-  height: 100vh!important;
   position: fixed;
   min-width: 300px;
   max-width: 300px;
@@ -106,6 +105,7 @@ body {
 
 .bg-dark {
   background-color: #1e1e2d !important;
+  height: 100%!important;
 }
 
 /* NEW SIDEBAR CSS */
@@ -166,7 +166,7 @@ body {
   position: fixed;
   top: 70px;
   width: 250px;
-  height: calc(100% - 9%);
+  height: calc(100% - 10%);
   transition: 0.3s;
   transition-property: width;
   overflow: auto;
@@ -254,6 +254,11 @@ a.menuItem {
   color: white;
 }
 
+.action-container{
+  display: none;
+}
+
+
 /* MOBILE CSS */
 
 @media (max-width: 768px) {
@@ -263,7 +268,7 @@ a.menuItem {
   }
 
   .sidebar {
-    height: calc(100vh - 69px)!important;
+    height: calc(100% - 69px)!important;
     top: 0;
   }
 
@@ -273,8 +278,84 @@ a.menuItem {
     top: calc(100% - 70px);
   }
 
+  .sidebar-btn-hidden{
+    display: none;
+  }
+
+  .action-container{
+    display: none;
+  }
+
+  .action-container-visible{
+    display: block;
+  }
+
+  .action-btn{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 5px 0 0 0!important;
+    
+  }
+
+  .header .action-container,
+  .header-collapsed .action-container {
+    width: 100vw!important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .action-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .action-btn button,
+  .action-btn button:disabled{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+
+  .action-btn button:hover,
+  .action-btn button:active,
+  .action-btn button:focus,
+  .action-btn button:target{
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    outline: 0;
+    color: #fff;
+  }
 
 
+  .action-btn button:active,
+  .action-btn button:active span,
+  .action-btn button:focus,
+  .action-btn button:focus span {
+    color: #6fc2fa!important;
+  }
+
+  .action-btn button:disabled,
+  .action-btn button:disabled span{
+    color: #a7a7a7!important
+  }
+
+  .action-btn span{
+    color: #fff;
+    font-size: 70%;
+    padding-top: 5px;
+  }
 
 }
 
