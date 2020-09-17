@@ -4,37 +4,19 @@
       <div class="sidebar-btn">
         <i class="fas fa-bars"></i>
       </div>
-  
+
       <div class="action-container">
         <div class="action-btn" ng-repeat="button in $ctrl.buttonPreview">
           <button
             ng-click="button.click()"
-            ng-disabled="{{ button.isDisabled }}">
+            ng-disabled="{{ button.isDisabled }}"
+          >
             <i class="{{ button.icon }}"></i>
             <span>{{ button.caption }}</span>
           </button>
         </div>
       </div>
-
     </div>
-
-    <!-- <div class="action-menu">
-      <ul>
-       <li ng-repeat="button in $ctrl.buttonPreview">
-          <i class={{button.icon}}></i>
-          <a ng-click='button.click'>{{button.caption}}</a>
-        </li>
-
-
-          <li>
-            <i class="fas fa-save"></i>
-            <span>Save</span>
-          </li>
-        <li><i class="fas fa-ban"></i><span>Cancel</span></li>
-        <li><i class="fas fa-search"></i><span>Search</span></li>
-        <li id="sidebar-btn"><i class="fas fa-bars"></i><span>Menu</span></li>
-      </ul>
-    </div> -->
   </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark"></nav>
