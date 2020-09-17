@@ -905,6 +905,7 @@ export class AppComponent {
       click: () => {
         $('.wrapper').toggleClass('collapsed');
         $('.header').toggleClass('header-collapsed');
+        $('.header .fa-bars').toggleClass('fa-times');
       },
     },
   ];
